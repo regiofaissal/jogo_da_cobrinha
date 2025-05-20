@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Cobrinha</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <script src="script.js" defer></script>
+    
+    <!-- Sons do jogo -->
+    <audio id="backgroundMusic" src="sounds/background.mp3" loop></audio>
+    <audio id="eatSound" src="sounds/eat.mp3"></audio>
+    <audio id="powerupSound" src="sounds/powerup.wav"></audio>
+    <audio id="gameoverSound" src="sounds/gameover.wav"></audio>
+    <audio id="levelupSound" src="sounds/levelup.wav"></audio>
+</head>
+<body>
+    <div class="container">
+        <h1>Jogo da Cobrinha</h1>
+        <div class="game-options">
+            <select id="themeSelect" class="theme-select">
+                <option value="classic">Tema Clássico</option>
+                <option value="neon">Tema Neon</option>
+                <option value="retro">Tema Retrô</option>
+                <option value="ocean">Tema Oceano</option>
+            </select>
+            <div class="sound-controls">
+                <label for="soundToggle" class="sound-label">Som:</label>
+                <input type="checkbox" id="soundToggle" checked>
+                <input type="range" id="volumeControl" min="0" max="100" value="30">
+            </div>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+      
+        <div class="button-container">
+            <button id="startButton">Iniciar Jogo</button>
+            <button id="tutorialButton" class="tutorial-button">Como Jogar</button>
+        </div>
+    </div>
+    <div id="gameOverModal" class="modal">
+        <div class="modal-content">
+            <h2>Game Over!</h2>
+            <p id="finalScore">Pontuação: 0</p>
+            <button id="modalOkButton">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <div id="tutorialModal" class="modal">
+        <div class="modal-content tutorial-content">
+            <h2>Como Jogar</h2>
+            <div class="tutorial-steps">
+                <p>🎮 Use as setas do teclado para controlar a cobra</p>
+                <p>🍎 Colete as comidas para crescer e ganhar pontos</p>
+                <p>⚡ Pegue power-ups especiais para habilidades extras:</p>
+                <ul>
+                    <li>🏃‍♂️ Velocidade Extra - Amarelo</li>
+                    <li>💎 Pontos Duplos - Rosa</li>
+                    <li>🛡️ Invencibilidade - Azul</li>
+                </ul>
+                <p>📱 Em dispositivos móveis, deslize para controlar</p>
+            </div>
+            <button id="tutorialCloseButton">Entendi!</button>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -127,9 +127,10 @@ tutorialButton.addEventListener('click', () => {
 
 // Configurações dos botões de controle no canvas
 function updateControlButtonsPosition() {
-    const buttonSize = 25;
-    const spacing = 4;
-    const containerPadding = 13;
+    const isMobile = window.innerWidth <= 768;
+    const buttonSize = isMobile ? 35 : 25;
+    const spacing = isMobile ? 6 : 4;
+    const containerPadding = isMobile ? 15 : 13;
     const containerWidth = buttonSize * 3 + spacing * 2;
     const containerHeight = buttonSize * 3 + spacing * 2;
     const containerX = canvas.width - containerWidth - containerPadding;
@@ -176,9 +177,10 @@ let controlButtons = updateControlButtonsPosition();
 // Função para desenhar os botões de controle
 function drawControlButtons() {
     controlButtons = updateControlButtonsPosition();
-    const buttonSize = 25;
-    const spacing = 5;
-    const containerPadding = 10;
+    const isMobile = window.innerWidth <= 768;
+    const buttonSize = isMobile ? 35 : 25;
+    const spacing = isMobile ? 6 : 5;
+    const containerPadding = isMobile ? 15 : 10;
     const containerWidth = buttonSize * 3 + spacing * 2;
     const containerHeight = buttonSize * 3 + spacing * 2;
     const containerX = canvas.width - containerWidth - containerPadding;
@@ -207,7 +209,8 @@ function drawControlButtons() {
         
         // Símbolo da seta
         ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-        ctx.font = '14px Segoe UI';
+        const isMobile = window.innerWidth <= 768;
+        ctx.font = `${isMobile ? '20px' : '14px'} Segoe UI`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText(button.symbol, button.x + button.w/2, button.y + button.h/2);
@@ -261,7 +264,10 @@ themeSelect.addEventListener('change', (e) => {
 
 // Configuração responsiva do canvas
 function setCanvasSize() {
-    const maxSize = Math.min(window.innerWidth * 0.9, window.innerHeight * 0.6);
+    const isMobile = window.innerWidth <= 768;
+    const maxSize = isMobile
+        ? Math.min(window.innerWidth * 0.95, window.innerHeight * 0.7)
+        : Math.min(window.innerWidth * 0.9, window.innerHeight * 0.6);
     canvas.width = Math.floor(maxSize / 20) * 20;
     canvas.height = canvas.width;
 }
@@ -405,7 +411,7 @@ function activatePowerUp() {
             gameInterval = setInterval(updateGame, speed);
         }
         powerUpType = null;
-    }, 5000);
+    }, 10000);
 }
 
 function drawGame() {

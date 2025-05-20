@@ -24,4 +24,3 @@ Este é um jogo da cobrinha moderno e interativo implementado com HTML5 Canvas e
 - Setas do teclado
 - Controles touch para dispositivos móveis
 - Botões direcionais na tela
-Too many current requests. Your queue position is 1. Please wait for a while or switch to other models for a smoother experience.
